@@ -34,15 +34,15 @@
 					<%out.write(aluno.getNome()); %>
 				</td>
 				<td>
-					<a href="VisualizarAluno.jsp?m=<%out.write(aluno.getMatricula()); %>">
+					<a href="VisualizarAluno.jsp?matricula=<%out.write(aluno.getMatricula()); %>">
 						<em>Visualizar</em>
 					</a>
 					<br>
-					<a href="ControleAluno/VisualizarAluno.jsp?m=<%out.write(aluno.getMatricula()); %>">
-						<em>Editar</em>
+					<a href="AtualizarAluno.jsp?matricula=<%out.write(aluno.getMatricula()); %>">
+						<em>Atualizar</em>
 					</a>
 					<br>
-					<a href="ControleAluno/VisualizarAluno.jsp?m=<%out.write(aluno.getMatricula()); %>">
+					<a href="Deletar?matricula=<%out.write(aluno.getMatricula()); %>">
 						<em>Excluir</em>
 					</a>
 				</td>
