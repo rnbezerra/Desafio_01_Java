@@ -34,7 +34,7 @@
 					<%out.write(aluno.getNome()); %>
 				</td>
 				<td>
-					<a href="ControleAluno/VisualizarAluno.jsp?m=<%out.write(aluno.getMatricula()); %>">
+					<a href="VisualizarAluno.jsp?m=<%out.write(aluno.getMatricula()); %>">
 						<em>Visualizar</em>
 					</a>
 					<br>

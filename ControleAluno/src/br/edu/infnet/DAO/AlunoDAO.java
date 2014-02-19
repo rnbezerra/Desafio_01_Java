@@ -48,7 +48,7 @@ public class AlunoDAO {
 		return ListaAlunos;
 	}
 
-	public ArrayList<Aluno> SelecionarMatricula(String matricula)
+	public Aluno SelecionarMatricula(String matricula)
 			throws ClassNotFoundException, SQLException {
 		connect();
 		PreparedStatement query = this.conn
@@ -56,16 +56,14 @@ public class AlunoDAO {
 						+ matricula + "%' ");
 
 		ResultSet resultados = query.executeQuery();
-		ArrayList<Aluno> ListaAlunos = new ArrayList<Aluno>();
+		Aluno aluno = new Aluno();
 
 		while (resultados.next()) {
-			Aluno aluno = new Aluno();
 			aluno.setMatricula(resultados.getString("matricula"));
 			aluno.setNome(resultados.getString("nome"));
-
-			ListaAlunos.add(aluno);
+			break;
 		}
-		return ListaAlunos;
+		return aluno;
 	}
 
 	public void Alterar(Aluno aluno) throws ClassNotFoundException,
