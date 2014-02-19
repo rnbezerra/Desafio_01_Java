@@ -12,16 +12,20 @@ public class TestRun {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		AlunoDAO dao = new AlunoDAO();
-		try {
-			System.out.println(dao.Selecionar().size());
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
+		Conexao con = new Conexao();
+		con.getConexao();
+		
+//		AlunoDAO dao = new AlunoDAO();
+//		try {
+//			System.out.println(dao.Selecionar().size());
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (SQLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 //		Aluno aluno = new Aluno();
 //		aluno.setMatricula("i20140001");
 //		aluno.setNome("Iago");

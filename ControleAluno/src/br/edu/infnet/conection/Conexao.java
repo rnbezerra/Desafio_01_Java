@@ -18,6 +18,8 @@ public class Conexao {
 	        String password = "postgres";
 	        System.out.println("Tentando conectar");
 	        try {
+	        	Class.forName("org.postgresql.Driver");
+	        	
 	            con = DriverManager.getConnection(url, user, password);
 	            st = con.createStatement();
 	            rs = st.executeQuery("SELECT VERSION()");
@@ -32,7 +34,10 @@ public class Conexao {
 	        } catch (SQLException ex) {
 	        	System.out.println("Não Conectou!");
 	        	FecharConexao();
-	        } finally {
+	        } catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+	        	System.out.println("Driver não encontrado. Não Conectou!");
+			} finally {
 	            
 	        }
 		}

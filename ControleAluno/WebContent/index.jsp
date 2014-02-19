@@ -16,6 +16,7 @@
 			<tr>
 				<td>Matricula</td>
 				<td>Nome</td>
+				<td>Opções</td>
 			</tr>
 		</thead>
 		
@@ -27,10 +28,23 @@
 		%>
 			<tr>
 				<td>
-					<%out.write(String.format("%d", aluno.getMatricula())); %>
+					<%out.write(aluno.getMatricula()); %>
 				</td>
 				<td>
-					<%out.write(String.format("%s", aluno.getNome())); %>
+					<%out.write(aluno.getNome()); %>
+				</td>
+				<td>
+					<a href="ControleAluno/VisualizarAluno.jsp?m=<%out.write(aluno.getMatricula()); %>">
+						<em>Visualizar</em>
+					</a>
+					<br>
+					<a href="ControleAluno/VisualizarAluno.jsp?m=<%out.write(aluno.getMatricula()); %>">
+						<em>Editar</em>
+					</a>
+					<br>
+					<a href="ControleAluno/VisualizarAluno.jsp?m=<%out.write(aluno.getMatricula()); %>">
+						<em>Excluir</em>
+					</a>
 				</td>
 			</tr>
 		<%

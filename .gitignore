@@ -2,19 +2,19 @@
 ## Eclipse
 #################
 
-*.pydevproject
-.project
-.metadata
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.classpath
-.settings/
-.loadpath
+# *.pydevproject
+# .project
+# .metadata
+# bin/
+# tmp/
+# *.tmp
+# *.bak
+# *.swp
+# *~.nib
+# local.properties
+# .classpath
+# .settings/
+# .loadpath
 
 # External tool builders
 .externalToolBuilders/
@@ -46,8 +46,8 @@ local.properties
 [Dd]ebug/
 [Rr]elease/
 x64/
-build/
-[Bb]in/
+# build/
+# [Bb]in/
 [Oo]bj/
 
 # MSTest test Results
