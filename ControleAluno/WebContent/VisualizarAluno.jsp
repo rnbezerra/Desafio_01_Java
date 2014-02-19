@@ -34,5 +34,14 @@
 			<td><%out.write(aluno.getNome()); %></td>
 		</tr>	
 	</table>
+	
+	
+	<br>
+	
+	<br>
+	
+	<a href="index.jsp">
+		<em>Voltar</em>
+	</a>
 </body>
 </html>

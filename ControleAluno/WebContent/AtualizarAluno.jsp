@@ -30,5 +30,14 @@
 			
 		<input type="submit" value="atualizar" /> 
 	</form>
+	
+	
+	<br>
+	
+	<br>
+	
+	<a href="index.jsp">
+		<em>Voltar</em>
+	</a>
 </body>
 </html>
