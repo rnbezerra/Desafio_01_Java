@@ -52,8 +52,8 @@ public class AlunoDAO {
 			throws ClassNotFoundException, SQLException {
 		connect();
 		PreparedStatement query = this.conn
-				.prepareStatement("SELECT \"matricula\", \"nome\" FROM aluno WHERE \"matricula\" LIKE '%"
-						+ matricula + "%' ");
+				.prepareStatement("SELECT \"matricula\", \"nome\" FROM aluno WHERE \"matricula\" LIKE ?");
+		query.setString(1, "%" + matricula + "%");
 
 		ResultSet resultados = query.executeQuery();
 		Aluno aluno = new Aluno();
@@ -82,7 +82,8 @@ public class AlunoDAO {
 			ClassNotFoundException {
 		connect();
 		PreparedStatement query = this.conn
-				.prepareStatement("DELETE FROM aluno WHERE \"matricula\" = "+ matricula);
+				.prepareStatement("DELETE FROM aluno WHERE \"matricula\" = ?");
+		query.setString(1, matricula);
 		
 		query.executeUpdate();
 
