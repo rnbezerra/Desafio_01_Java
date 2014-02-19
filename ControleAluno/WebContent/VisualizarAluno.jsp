@@ -18,17 +18,21 @@
 <title><%out.write(aluno.getNome()); %></title>
 </head>
 <body>
-	<h1>Atualizar Aluno</h1>
+	<h1>Visualização de Aluno</h1>
 	
 	<br>
 	
 	<br>
-
-	<form method="post" action="Atualizar">
-		Matricula: <input type="text" name="txtMatricula" id="txtMatricula" value="<%out.write(aluno.getMatricula()); %>" readonly/><br>
-		Nome: <input type="text" name="txtNome" id="txtNome" value="<%out.write(aluno.getNome()); %>"/><br>
-			
-		<input type="submit" value="atualizar" /> 
-	</form>
+	
+	<table>
+		<tr>
+			<td>Matrícula:</td>
+			<td><%out.write(aluno.getMatricula()); %></td>
+		</tr>	
+		<tr>
+			<td>Nome:</td>
+			<td><%out.write(aluno.getNome()); %></td>
+		</tr>	
+	</table>
 </body>
 </html>

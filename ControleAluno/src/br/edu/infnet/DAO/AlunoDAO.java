@@ -70,9 +70,9 @@ public class AlunoDAO {
 			SQLException {
 		connect();
 		PreparedStatement query = this.conn
-				.prepareStatement("UPDATE aluno SET \"nome\" = "
-						+ aluno.getNome() + "WHERE \"matricula\" = "
-						+ aluno.getMatricula());
+				.prepareStatement("UPDATE aluno SET \"nome\" = ? WHERE \"matricula\" = ?");
+		query.setString(1, aluno.getNome());
+		query.setString(2, aluno.getMatricula());
 
 		query.executeUpdate();
 

@@ -1,11 +1,16 @@
 package br.edu.infnet.servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import br.edu.infnet.DAO.AlunoDAO;
+import br.edu.infnet.DTO.Aluno;
 
 /**
  * Servlet implementation class Atualizar
@@ -23,11 +28,30 @@ public class Atualizar extends HttpServlet {
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String matricula = request.getParameter("matricula");
+		
+		Aluno aluno = new Aluno();
+		aluno.setMatricula(request.getParameter("txtMatricula"));
+		aluno.setNome(request.getParameter("txtNome"));
+		
+		AlunoDAO dao = new AlunoDAO();
+		
+		try {
+			
+			dao.Alterar(aluno);
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		response.sendRedirect("index.jsp");
 	}
 
 }
