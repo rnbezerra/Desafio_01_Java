@@ -4,11 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Inserir Aluno</title>
 </head>
 <body>
 
-	<form method="post" action="Solicitacao">
+	<form method="post" action="Inserir">
 		Matricula: <input type="text" name="txtMatricula" id="txtMatricula"/><br>
 		Nome: <input type="text" name="txtNome" id="txtNome"/><br>
 		

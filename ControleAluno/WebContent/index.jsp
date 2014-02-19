@@ -52,6 +52,12 @@
 		%>
 		
 	</table>
+	
+	<br>
+	<br>
+	<a href="InserirAluno.jsp">
+		<em>Clique Aqui Para Inserir Um Novo Aluno</em>
+	</a>
 
 </body>
 </html>
