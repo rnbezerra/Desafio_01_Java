@@ -78,12 +78,12 @@ public class AlunoDAO {
 
 	}
 
-	public void Deletar(Aluno aluno) throws SQLException,
+	public void Deletar(String matricula) throws SQLException,
 			ClassNotFoundException {
 		connect();
 		PreparedStatement query = this.conn
 				.prepareStatement("DELETE FROM aluno WHERE \"matricula\" = "
-						+ aluno.getMatricula());
+						+ matricula);
 
 		query.execute();
 
