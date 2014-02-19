@@ -10,7 +10,7 @@
 
 	<form method="post" action="Solicitacao">
 		Matricula: <input type="text" name="txtMatricula" id="txtMatricula"/><br>
-		nome: <input type="text" name="txtNome" id="txtNome"/><br>
+		Nome: <input type="text" name="txtNome" id="txtNome"/><br>
 		
 		<input type="submit" value="salvar" /> 
 	</form>
