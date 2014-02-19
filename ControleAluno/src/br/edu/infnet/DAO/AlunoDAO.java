@@ -82,10 +82,9 @@ public class AlunoDAO {
 			ClassNotFoundException {
 		connect();
 		PreparedStatement query = this.conn
-				.prepareStatement("DELETE FROM aluno WHERE \"matricula\" = "
-						+ matricula);
-
-		query.execute();
+				.prepareStatement("DELETE FROM aluno WHERE \"matricula\" = "+ matricula);
+		
+		query.executeUpdate();
 
 	}
 }

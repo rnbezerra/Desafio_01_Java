@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.connector.Request;
+
 import br.edu.infnet.DAO.AlunoDAO;
 
 /**
@@ -34,7 +36,7 @@ public class Deletar extends HttpServlet {
 		// TODO Auto-generated method stub
 		PrintWriter printWriter = response.getWriter();
 		
-		String matricula = request.getAttribute("matricula").toString();
+		String matricula = request.getParameter("matricula").toString();
 		
 		AlunoDAO alunoDAO = new AlunoDAO();
 		
