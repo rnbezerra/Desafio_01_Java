@@ -41,15 +41,20 @@ public class Deletar extends HttpServlet {
 		AlunoDAO alunoDAO = new AlunoDAO();
 		
 		try {
+			
 			alunoDAO.Deletar(matricula);
 			
 			printWriter.write("Aluno deletado com sucesso!");
 			
-		} catch (ClassNotFoundException | SQLException e) {
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			printWriter.write("Falha na execução do comando");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
+			
+		
 		
 	}
 

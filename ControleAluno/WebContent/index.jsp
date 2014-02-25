@@ -28,21 +28,21 @@
 		%>
 			<tr>
 				<td>
-					<%out.write(aluno.getMatricula()); %>
+					<%=aluno.getMatricula()%>
 				</td>
 				<td>
-					<%out.write(aluno.getNome()); %>
+					<%=aluno.getNome()%>
 				</td>
 				<td>
-					<a href="VisualizarAluno.jsp?matricula=<%out.write(aluno.getMatricula()); %>">
+					<a href="VisualizarAluno.jsp?matricula=<%=aluno.getMatricula()%>">
 						<em>Visualizar</em>
 					</a>
 					<br>
-					<a href="AtualizarAluno.jsp?matricula=<%out.write(aluno.getMatricula()); %>">
+					<a href="AtualizarAluno.jsp?matricula=<%=aluno.getMatricula()%>">
 						<em>Atualizar</em>
 					</a>
 					<br>
-					<a href="Deletar?matricula=<%out.write(aluno.getMatricula()); %>">
+					<a href="Deletar?matricula=<%=aluno.getMatricula()%>">
 						<em>Excluir</em>
 					</a>
 				</td>
