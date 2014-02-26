@@ -9,8 +9,8 @@
 <body>
 
 	<form method="post" action="InserirTurma">
-		Nome: <input type="text" name="txtNome" id="txtNome"/><br>		
-		<input type="submit" value="salvar" /> 
+		Nome da Turma: <input type="text" name="txtNome" id="txtNome"/><br>		
+		<input type="submit" value="Incluir" /> 
 	</form>
 </body>
 </html>

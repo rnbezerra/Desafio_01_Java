@@ -1,0 +1,5 @@
+127.0.0.1 - - [25/Feb/2014:21:48:38 -0300] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [25/Feb/2014:21:48:40 -0300] "GET /ControleAluno/InserirTurma.jsp HTTP/1.1" 200 423
+0:0:0:0:0:0:0:1 - - [25/Feb/2014:21:49:11 -0300] "GET /ControleAluno/InserirTurma.jsp HTTP/1.1" 200 423
+127.0.0.1 - - [25/Feb/2014:21:50:57 -0300] "GET / HTTP/1.1" 404 951
+0:0:0:0:0:0:0:1 - - [25/Feb/2014:21:51:00 -0300] "GET /ControleAluno/InserirTurma.jsp HTTP/1.1" 200 433
