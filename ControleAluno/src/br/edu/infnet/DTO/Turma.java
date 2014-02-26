@@ -27,5 +27,19 @@ public class Turma {
 	public void setAlunos(ArrayList<Aluno> alunos) {
 		this.alunos = alunos;
 	}
-    
+	
+	public boolean ContemAluno(String matricula) {
+		boolean existe = false;
+		
+		if(alunos != null){
+			for (Aluno aluno : alunos) {
+				if(aluno.getMatricula().equalsIgnoreCase(matricula)){
+					existe = true;
+					break;
+				}	
+			}
+		}
+		
+		return existe;
+	}
 }
