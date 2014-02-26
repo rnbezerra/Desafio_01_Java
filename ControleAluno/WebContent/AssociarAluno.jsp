@@ -19,17 +19,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 
-<title><%=turma.getNome()%></title>
+<title>${Turma.getNome()}</title>
 </head>
 <body>
-<h1><%=turma.getNome()%></h1>
+<h1>${Turma.getNome()}</h1>
 
 	
 	<table>
 		<tr>
 			<td>Aluno</td>
 			<tr>
-			<td><%out.write(turma.getNome()); %></td>
+			<td>${Turma.getNome()}</td>
 			<td><%out.write("ASSOCIAR / DESASSOCIAR"); %></td>
 			</tr>
 		</tr>	

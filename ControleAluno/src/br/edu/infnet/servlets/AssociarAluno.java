@@ -1,14 +1,19 @@
 package br.edu.infnet.servlets;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import br.edu.infnet.DAO.AlunoDAO;
 import br.edu.infnet.DAO.TurmaDAO;
+import br.edu.infnet.DTO.Aluno;
 import br.edu.infnet.DTO.Turma;
 
 /**
@@ -32,9 +37,36 @@ public class AssociarAluno extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		Turma turma = null;
 		TurmaDAO turmaDAO =  new TurmaDAO();
-		Turma turma = turmaDAO.SelecionarPorId( Integer.parseInt( request.getAttribute("id") ) , true);
+		ArrayList<Aluno> alunoList = null;
 		
+		try {
+			alunoList =  new AlunoDAO().Selecionar();
+		} catch (ClassNotFoundException | SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		try {
+			turma = turmaDAO.SelecionarPorId( Integer.parseInt( request.getParameter("id") ) , true);
+			
+			
+			request.setAttribute("Turma", turma);
+			request.setAttribute("AlunosLista", alunoList);
+			RequestDispatcher view = request.getRequestDispatcher("AssociarAluno.jsp");
+			view.forward(request, response);
+			
+			
+		} catch (NumberFormatException | ClassNotFoundException
+				| SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+			
 	}
 
 }
