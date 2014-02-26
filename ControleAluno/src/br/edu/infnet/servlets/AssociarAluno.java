@@ -3,6 +3,7 @@ package br.edu.infnet.servlets;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Enumeration;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -37,6 +38,8 @@ public class AssociarAluno extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		
+		
 		Turma turma = null;
 		TurmaDAO turmaDAO =  new TurmaDAO();
 		ArrayList<Aluno> alunoList = null;
@@ -50,7 +53,7 @@ public class AssociarAluno extends HttpServlet {
 		
 		
 		try {
-			turma = turmaDAO.SelecionarPorId( Integer.parseInt( request.getParameter("id") ) , true);
+			turma = turmaDAO.SelecionarPorId( Integer.parseInt( request.getParameter( parameterIgnoreCase(request, "id") ) ) , true);
 			
 			
 			request.setAttribute("Turma", turma);
@@ -67,6 +70,28 @@ public class AssociarAluno extends HttpServlet {
 		
 		
 			
+	}
+
+
+	private String parameterIgnoreCase(HttpServletRequest request, String parameter)
+	{
+	
+		Enumeration<String> e = request.getParameterNames();
+		
+		parameter.toLowerCase();
+		String element;
+		
+		while(e.hasMoreElements()) {
+			
+			element = e.nextElement();
+			
+			if( parameter.equalsIgnoreCase( element ) )
+			{
+				return element;
+			}
+		}
+		
+		return null;
 	}
 
 }
