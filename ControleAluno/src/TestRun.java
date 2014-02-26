@@ -1,7 +1,9 @@
 import java.sql.SQLException;
 
 import br.edu.infnet.DAO.AlunoDAO;
+import br.edu.infnet.DAO.TurmaDAO;
 import br.edu.infnet.DTO.Aluno;
+import br.edu.infnet.DTO.Turma;
 import br.edu.infnet.conection.Conexao;
 
 
@@ -15,6 +17,7 @@ public class TestRun {
 		
 		Conexao con = new Conexao();
 		con.getConexao();
+		TurmaDAO dao = new TurmaDAO();
 		
 //		AlunoDAO dao = new AlunoDAO();
 //		try {
