@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import br.edu.infnet.DTO.Aluno;
 import br.edu.infnet.DTO.Turma;
 import br.edu.infnet.conection.Conexao;
 
@@ -48,21 +49,50 @@ public class TurmaDAO {
 		return ListaTurmas;
 	}
 
-	public Turma SelecionarId(Integer id) throws ClassNotFoundException,
+	public Turma SelecionarId(int id) throws ClassNotFoundException,
+			SQLException {
+		return SelecionarPorId(id, false);
+	}
+
+	public Turma SelecionarPorId(int id, boolean buscarAlunos) throws ClassNotFoundException,
 			SQLException {
 		connect();
 		PreparedStatement query = this.conn
 				.prepareStatement("SELECT \"id\", \"nome\" FROM \"turma\" WHERE \"id\" = ?");
-		query.setString(1, id.toString());
+		query.setInt(1, id);
 
 		ResultSet resultados = query.executeQuery();
 		Turma turma = new Turma();
 
-		while (resultados.next()) {
-			turma.setId(Integer.parseInt(resultados.getString("id")));
+		if (resultados.next()) {
+			turma.setId(resultados.getInt(("id")));
 			turma.setNome(resultados.getString("nome"));
-			break;
 		}
+
+		resultados.close();
+		query.close();
+		
+		if (buscarAlunos) {
+			query = this.conn.prepareStatement("");
+			ArrayList<Aluno> listaAlunos = new ArrayList<Aluno>();
+
+			resultados = query.executeQuery();
+			
+			while (resultados.next()) {
+				Aluno aluno = new Aluno();
+				aluno.setMatricula(resultados.getString("matricula"));
+				aluno.setNome(resultados.getString("nome"));
+
+				listaAlunos.add(aluno);
+			}
+			
+
+			resultados.close();
+			query.close();
+			
+			turma.setAlunos(listaAlunos);
+		}
+		
 		return turma;
 	}
 }
