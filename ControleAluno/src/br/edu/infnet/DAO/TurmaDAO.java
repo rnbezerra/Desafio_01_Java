@@ -49,7 +49,7 @@ public class TurmaDAO {
 		return ListaTurmas;
 	}
 
-	public Turma SelecionarId(int id) throws ClassNotFoundException,
+	public Turma SelecionarPorId(int id) throws ClassNotFoundException,
 			SQLException {
 		return SelecionarPorId(id, false);
 	}
@@ -69,11 +69,12 @@ public class TurmaDAO {
 			turma.setNome(resultados.getString("nome"));
 		}
 
-		resultados.close();
-		query.close();
-		
 		if (buscarAlunos) {
-			query = this.conn.prepareStatement("");
+			query = this.conn.prepareStatement("SELECT matricula, nome FROM aluno "
+											 + "INNER JOIN turma_aluno "
+											 + "ON(aluno.matricula = turma_aluno.matricula_aluno)"
+											 + "WHERE id_turma = ?");
+			query.setInt(1, id);
 			ArrayList<Aluno> listaAlunos = new ArrayList<Aluno>();
 
 			resultados = query.executeQuery();
@@ -86,7 +87,6 @@ public class TurmaDAO {
 				listaAlunos.add(aluno);
 			}
 			
-
 			resultados.close();
 			query.close();
 			
