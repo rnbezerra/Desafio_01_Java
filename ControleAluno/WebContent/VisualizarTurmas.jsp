@@ -31,7 +31,7 @@
 					<%out.write(turma.getNome());%>
 				</td>
 				<td>
-					<a href="AssociarTurmaAluno.jsp?id=<%=turma.getId()%>">
+					<a href="AssociarAluno?id=<%=turma.getId()%>">
 						<em>Associar Aluno</em>
 					</a>
 				</td>
