@@ -2,9 +2,7 @@ package br.edu.infnet.DAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 import br.edu.infnet.DTO.Aluno;
 import br.edu.infnet.DTO.Turma;
@@ -53,44 +51,6 @@ public class TurmaAlunoDAO {
     	   query.setInt(1, turma.getId() );
     	   query.setString(2, aluno.getMatricula() );
     	   query.executeUpdate();
-       }
-       
-       /*public ArrayList<Turma> Selecionar() throws ClassNotFoundException, SQLException {
-               connect();
-               PreparedStatement query = this.conn
-                               .prepareStatement("SELECT \"id\", \"nome\" FROM \"turma\" ");
-
-               ResultSet resultados = query.executeQuery();
-               ArrayList<Turma> ListaTurmas = new ArrayList<Turma>();
-
-               while (resultados.next()) {
-                       Turma Turma = new Turma();
-                       Turma.setId( Integer.parseInt(resultados.getString("id")));
-                       Turma.setNome(resultados.getString("nome"));
-
-                       ListaTurmas.add(Turma);
-               }
-               return ListaTurmas;
-       }
-
-       public Turma SelecionarId(Integer id)
-                       throws ClassNotFoundException, SQLException {
-               connect();
-               PreparedStatement query = this.conn
-                               .prepareStatement("SELECT \"id\", \"nome\" FROM \"turma\" WHERE \"id\" = ?");
-               query.setString(1, id.toString() );
-
-               ResultSet resultados = query.executeQuery();
-               Turma turma = new Turma();
-
-               while (resultados.next()) {
-                       turma.setId(Integer.parseInt(resultados.getString("id")));
-                       turma.setNome(resultados.getString("nome"));
-                       break;
-               }
-               return turma;
-       }
-*/
-	
+       }	
 	
 }
