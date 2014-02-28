@@ -39,9 +39,8 @@ public class DesassociarTurmaAluno extends HttpServlet {
 		String matricula = "";
 		
 		try {
-			ParameterHelper paramHelper = new ParameterHelper();
-			turma = Integer.parseInt(request.getParameter(paramHelper.parameterIgnoreCase(request, "turma")));
-			matricula = request.getParameter(paramHelper.parameterIgnoreCase(request, "matricula"));
+			turma = Integer.parseInt(ParameterHelper.parameterIgnoreCase(request, "turma"));
+			matricula = ParameterHelper.parameterIgnoreCase(request, "matricula");
 			
 			dao.Deletar(turma, matricula);
 

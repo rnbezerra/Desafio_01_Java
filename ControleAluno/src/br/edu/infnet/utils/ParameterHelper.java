@@ -11,7 +11,7 @@ public class ParameterHelper {
 	
 		Enumeration<String> e = request.getParameterNames();
 		
-		parameter.toLowerCase();
+//		parameter.toLowerCase();
 		String element;
 		
 		while(e.hasMoreElements()) {
@@ -20,7 +20,7 @@ public class ParameterHelper {
 			
 			if( parameter.equalsIgnoreCase( element ) )
 			{
-				return element;
+				return request.getParameter(parameter);
 			}
 		}
 		

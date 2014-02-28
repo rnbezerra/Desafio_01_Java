@@ -54,10 +54,8 @@ public class AssociarAluno extends HttpServlet {
 		
 		
 		try {
-			ParameterHelper paramHelper = new ParameterHelper();
-			turma = turmaDAO.SelecionarPorId( Integer.parseInt( request.getParameter( paramHelper.parameterIgnoreCase(request, "id") ) ) , true);
-			
-			
+			turma = turmaDAO.SelecionarPorId(Integer.parseInt(ParameterHelper.parameterIgnoreCase(request, "id")) , true);
+						
 			request.setAttribute("Turma", turma);
 			request.setAttribute("AlunosLista", alunoList);
 			RequestDispatcher view = request.getRequestDispatcher("AssociarAluno.jsp");
