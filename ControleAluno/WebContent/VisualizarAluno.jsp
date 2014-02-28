@@ -1,4 +1,4 @@
-<%@page import="br.edu.infnet.utils.ParameterHelper"%>
+<%@page import="br.edu.infnet.utils.*"%>
 <%@page import="br.edu.infnet.DTO.Aluno"%>
 <%@page import="br.edu.infnet.DAO.AlunoDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
