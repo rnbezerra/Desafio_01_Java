@@ -2,6 +2,7 @@
 <%@page import="br.edu.infnet.DAO.TurmaDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
     
     
@@ -11,6 +12,8 @@
   
   	TurmaDAO dao = new TurmaDAO();
   	Turma turma = dao.SelecionarPorId(Integer.parseInt(id));
+  	
+  	
  	
 %>
 
@@ -29,10 +32,14 @@
 		<tr>
 			<td>Aluno</td>
 			<tr>
-			<td>${Turma.getNome()}</td>
+			<c:forEach var="alunos" items="alunoList">
+			${alunos.getNome()}
+			</c:forEach>
+			
+				
 			<td><%out.write("ASSOCIAR / DESASSOCIAR"); %></td>
 			</tr>
-		</tr>	
+		</tr>
 		
 	</table>
 
