@@ -36,6 +36,13 @@
 						
 		</tr>
 	</table>
+	
+	
+	<br>
+	<br>
+	<a href="VisualizarTurmas.jsp">
+		<em>Voltar</em>
+	</a>
 
 </body>
 </html>
