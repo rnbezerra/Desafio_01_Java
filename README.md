@@ -1,9 +1,9 @@
 Desafio 01 & 02
 ===============
 
-IAGO MOREIRA
-RAFAEL NASCIMENTO
-RAMON GOMES
+	IAGO MOREIRA;
+	RAFAEL NASCIMENTO;
+	RAMON GOMES;
 
 ===============
 
