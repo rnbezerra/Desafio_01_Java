@@ -4,18 +4,6 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     
-    
-    
-<%--
-	String id = request.getParameter("id");
-	String Nometurma = null;
-  
-  	TurmaDAO dao = new TurmaDAO();
-  	Turma turma = dao.SelecionarPorId(Integer.parseInt(id));
-  	
-  	
- 	
---%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -31,16 +19,22 @@
 	<table>
 		<tr>
 			<td>Aluno</td>
-			<tr>
-			<c:forEach var="alunos" items="${AlunosLista}">
-			${alunos.getNome()}
-			</c:forEach>
 			
+			<c:forEach var="alunos" items="${AlunosLista}">
+			<tr>
 				
-			<td><%out.write("ASSOCIAR / DESASSOCIAR"); %></td>
+				<td>${alunos.getNome()}</td>
+				<c:if test="${Turma.ContemAluno(alunos.getMatricula()) == true}">
+				<td><a href="DesassociarTurmaAluno?turma=${Turma.getId()}&matricula=${alunos.getMatricula()}"><%out.write("DESASSOCIAR");%></a></td>
+				</c:if> 
+				<c:if test="${Turma.ContemAluno(alunos.getMatricula()) == false}">
+				<td><a href="AssociarTurmaAluno?turma=${Turma.getId()}&matricula=${alunos.getMatricula()}"><%out.write("ASSOCIAR"); %></a></td>
+				</c:if> 		
+				
 			</tr>
+			</c:forEach>
+						
 		</tr>
-		
 	</table>
 
 </body>
