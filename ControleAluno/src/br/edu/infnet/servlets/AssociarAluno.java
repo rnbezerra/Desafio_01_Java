@@ -16,6 +16,7 @@ import br.edu.infnet.DAO.AlunoDAO;
 import br.edu.infnet.DAO.TurmaDAO;
 import br.edu.infnet.DTO.Aluno;
 import br.edu.infnet.DTO.Turma;
+import br.edu.infnet.utils.ParameterHelper;
 
 /**
  * Servlet implementation class AssociarAluno
@@ -53,7 +54,8 @@ public class AssociarAluno extends HttpServlet {
 		
 		
 		try {
-			turma = turmaDAO.SelecionarPorId( Integer.parseInt( request.getParameter( parameterIgnoreCase(request, "id") ) ) , true);
+			ParameterHelper paramHelper = new ParameterHelper();
+			turma = turmaDAO.SelecionarPorId( Integer.parseInt( request.getParameter( paramHelper.parameterIgnoreCase(request, "id") ) ) , true);
 			
 			
 			request.setAttribute("Turma", turma);
@@ -73,25 +75,25 @@ public class AssociarAluno extends HttpServlet {
 	}
 
 
-	private String parameterIgnoreCase(HttpServletRequest request, String parameter)
-	{
-	
-		Enumeration<String> e = request.getParameterNames();
-		
-		parameter.toLowerCase();
-		String element;
-		
-		while(e.hasMoreElements()) {
-			
-			element = e.nextElement();
-			
-			if( parameter.equalsIgnoreCase( element ) )
-			{
-				return element;
-			}
-		}
-		
-		return null;
-	}
+//	private String parameterIgnoreCase(HttpServletRequest request, String parameter)
+//	{
+//	
+//		Enumeration<String> e = request.getParameterNames();
+//		
+//		parameter.toLowerCase();
+//		String element;
+//		
+//		while(e.hasMoreElements()) {
+//			
+//			element = e.nextElement();
+//			
+//			if( parameter.equalsIgnoreCase( element ) )
+//			{
+//				return element;
+//			}
+//		}
+//		
+//		return null;
+//	}
 
 }

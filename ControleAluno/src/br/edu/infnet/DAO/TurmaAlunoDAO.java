@@ -20,12 +20,12 @@ public class TurmaAlunoDAO {
 
        }
 
-       public void Inserir(Turma turma, Aluno aluno) throws ClassNotFoundException, SQLException {
+       public void Inserir(int turma, String matricula) throws ClassNotFoundException, SQLException {
                connect();
                PreparedStatement query = this.conn
                                .prepareStatement("INSERT INTO \"turma_aluno\"( \"id_turma\", \"matricula_aluno\")  VALUES (?,?)");
-               query.setInt(1, turma.getId() );
-               query.setString(2, aluno.getMatricula() );
+               query.setInt(1, turma);
+               query.setString(2, matricula);
                query.execute();
 
        }
@@ -43,15 +43,15 @@ public class TurmaAlunoDAO {
        }
        
        
-       public void Deletar(Turma turma, Aluno aluno) throws ClassNotFoundException, SQLException
+       public void Deletar(int turma, String matricula) throws ClassNotFoundException, SQLException
        {
     	   
     	   connect();
     	   PreparedStatement query = this.conn
     			   .prepareStatement("DELETE FROM \"turma_aluno\" WHERE \"id_turma\"= ? AND \"matricula_aluno\"= ? ");
     	   
-    	   query.setInt(1, turma.getId() );
-    	   query.setString(2, aluno.getMatricula() );
+    	   query.setInt(1, turma);
+    	   query.setString(2, matricula);
     	   query.executeUpdate();
        }
        
